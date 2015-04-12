@@ -1,3 +1,7 @@
 Lint/HandleExceptions:
   Exclude:
     - spec/aws_sns_manager/client_spec.rb
+
+Metrics/LineLength:
+  Exclude:
+    - aws_sns_manager.gemspec
