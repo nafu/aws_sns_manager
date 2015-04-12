@@ -69,4 +69,3 @@ DEPENDENCIES
   rake
   rspec (~> 3)
   rubocop
-  simplecov
