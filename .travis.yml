@@ -1,0 +1,8 @@
+deploy:
+  provider: rubygems
+  api_key:
+    secure: DaIvbW+6p9LNv3YrnsIDtwo4f/7pIe1Y1E5tQuoOspN+lnUhaL5qFWYtbyuMUW9yG9TQhPCn9irCbUBkoKLCKCcbtYrQsELY2hx+z3fFJ7wZMriLojCttf4yZfGdK539clcPsIpkWVSsDaUnxGC1nbj5pJBLJk4U23SiZrMWL0I=
+  gem: aws_sns_manager
+  on:
+    tags: true
+    repo: nafu/aws_sns_manager
