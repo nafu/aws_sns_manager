@@ -1,14 +1,13 @@
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'aws_sns_manager/version'
-
-def aws_sns_manager_files
-  `git ls-files -z`.split("\x0").reject { |f| f.start_with?('spec/') }
-end
 
 Gem::Specification.new do |s|
   s.authors       = ['Fumiya Nakamura']
   s.description   = 'Utility for Amazon Simple Notification Service'
   s.email         = ['nakamurafumiya003@gmail.com']
-  s.files         = aws_sns_manager_files
+  s.files         = `git ls-files -z`.split("\x0").reject { |f| f.start_with?('spec/') }
   s.homepage      = 'http://github.com/nafu/aws_sns_manager'
   s.licenses      = %w(MIT)
   s.name          = 'aws_sns_manager'
@@ -19,10 +18,10 @@ Gem::Specification.new do |s|
   s.version       = "#{s.version}-alpha-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
 
   s.add_dependency 'aws-sdk', '~> 2'
-  s.add_dependency 'json'
+  s.add_dependency 'json', '~> 1.8'
 
-  s.add_development_dependency 'rake'
-  s.add_development_dependency 'bundler'
+  s.add_development_dependency 'rake', '~> 10.0'
+  s.add_development_dependency 'bundler', '>= 1.3.0', '< 2.0'
   s.add_development_dependency 'rspec', '~> 3'
-  s.add_development_dependency 'rubocop'
+  s.add_development_dependency 'rubocop', '~> 0.30'
 end
