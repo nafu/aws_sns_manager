@@ -17,6 +17,8 @@ Gem::Specification.new do |s|
   s.version       = AwsSnsManager::VERSION
   s.version       = "#{s.version}-alpha-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
 
+  s.required_ruby_version = '~> 2.0'
+
   s.add_dependency 'aws-sdk', '~> 2'
   s.add_dependency 'json', '~> 1.8'
 
