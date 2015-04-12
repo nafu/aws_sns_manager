@@ -20,6 +20,8 @@ GEM
     aws-sdk-resources (2.0.37)
       aws-sdk-core (= 2.0.37)
     builder (3.2.2)
+    codeclimate-test-reporter (0.4.7)
+      simplecov (>= 0.7.1, < 1.0.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
     jmespath (1.0.2)
@@ -63,6 +65,7 @@ PLATFORMS
 DEPENDENCIES
   aws_sns_manager!
   bundler
+  codeclimate-test-reporter
   rake
   rspec (~> 3)
   rubocop

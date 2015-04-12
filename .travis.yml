@@ -6,3 +6,7 @@ deploy:
   on:
     tags: true
     repo: nafu/aws_sns_manager
+addons:
+  code_climate:
+    repo_token:
+      secure: hZdPD3pLNCe7aFaRkEI1plpe16NVacxu6r1GwbngOq/8bWf9EGFH1+KZ/TTT4JyXCki+RrqiD4RybnCQfOTuBD6Lt5q79b1EhygNlnlgbXRzWCmeksurwelRCfYUORTz/Wl+eN9xvP8CpxZ1sO/Y7rVFV3wyDBt0wBR63vRT7ko=
