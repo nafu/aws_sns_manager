@@ -1,3 +1,5 @@
+require 'aws_sns_manager/version'
+
 def aws_sns_manager_files
   `git ls-files -z`.split("\x0").reject { |f| f.start_with?('spec/') }
 end
@@ -13,7 +15,8 @@ Gem::Specification.new do |s|
   s.require_paths = %w(lib)
   s.required_rubygems_version = '>= 1.3.5'
   s.summary       = s.description
-  s.version       = '0.0.1'
+  s.version       = AwsSnsManager::VERSION
+  s.version       = "#{s.version}-alpha-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
 
   s.add_dependency 'aws-sdk', '~> 2'
   s.add_dependency 'json'
