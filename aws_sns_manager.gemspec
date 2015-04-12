@@ -19,11 +19,11 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '~> 2.0'
 
+  s.add_dependency 'bundler', '>= 1.3.0', '< 2.0'
   s.add_dependency 'aws-sdk', '~> 2'
   s.add_dependency 'json', '~> 1.8'
 
   s.add_development_dependency 'rake', '~> 10.0'
-  s.add_development_dependency 'bundler', '>= 1.3.0', '< 2.0'
   s.add_development_dependency 'rspec', '~> 3'
   s.add_development_dependency 'rubocop', '~> 0.30'
 end
