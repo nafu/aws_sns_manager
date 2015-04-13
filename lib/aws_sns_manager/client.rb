@@ -10,8 +10,8 @@ module AwsSnsManager
       @client = Aws::SNS::Client.new(options)
     end
 
-    def send
-      message = message('Hi').to_json
+    def send(text = nil)
+      message = message(text).to_json
       response = publish_rescue(message)
       !response.nil?
     end

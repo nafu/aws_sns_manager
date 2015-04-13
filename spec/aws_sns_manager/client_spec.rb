@@ -11,7 +11,10 @@ describe AwsSnsManager::Client do
       end
 
       it 'should send SNS successfully' do
+        # without message
         expect(client.send).to be true
+        # with message
+        expect(client.send('Hi')).to be true
       end
     end
 
