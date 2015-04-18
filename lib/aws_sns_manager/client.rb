@@ -35,7 +35,8 @@ module AwsSnsManager
         aps: {
           alert: text,
           sound: 'default',
-          badge: 1
+          badge: 1,
+          'content-available': 1
         }
       }
     end
