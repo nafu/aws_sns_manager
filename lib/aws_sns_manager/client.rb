@@ -10,8 +10,8 @@ module AwsSnsManager
       @client = Aws::SNS::Client.new(options)
     end
 
-    def send(text = nil)
-      message = message(text).to_json
+    def send(text = nil, options = {})
+      message = message(text, options).to_json
       response = publish_rescue(message)
       !response.nil?
     end
@@ -24,14 +24,14 @@ module AwsSnsManager
       )
     end
 
-    def message(text)
+    def message(text, options = {})
       {
-        APNS: notification(text).to_json
+        APNS: notification(text, options).to_json
       }
     end
 
-    def notification(text)
-      {
+    def notification(text, options = {})
+      base = {
         aps: {
           alert: text,
           sound: 'default',
@@ -39,6 +39,7 @@ module AwsSnsManager
           'content-available': 1
         }
       }
+      base.merge(options)
     end
   end
 end
