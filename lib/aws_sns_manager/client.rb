@@ -27,7 +27,7 @@ module AwsSnsManager
     def message(text, options = {})
       json = notification(text, options).to_json
       {
-        default: json
+        default: json,
         APNS: json
       }
     end
