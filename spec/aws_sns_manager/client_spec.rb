@@ -22,7 +22,7 @@ describe AwsSnsManager::Client do
       let(:client) do
         manager = AwsSnsManager::Client.new(stub_responses: true)
         manager.client.stub_responses(
-          :publish, Aws::SNS::Errors::InvalidParameter)
+          :publish, 'InvalidParameter')
         manager
       end
 
