@@ -33,14 +33,13 @@ module AwsSnsManager
     # +type+:: Notification type :normal, :silent
     #
     def message(text, options = {}, env = :prod, type = :normal)
-      json = nil
       if type == :normal
-        json = normal_notification(text, options).to_json
+        data = normal_notification(text, options)
       elsif type == :silent
-        json = silent_notification(text, options).to_json
+        data = silent_notification(text, options)
       end
-      return { default: json, APNS_SANDBOX: json } if env == :dev
-      { default: json, APNS: json }
+      return dev_json(data) if env == :dev
+      prod_json(data)
     end
 
     def normal_notification(text, options = {})
@@ -62,6 +61,16 @@ module AwsSnsManager
         }
       }
       base.merge(options)
+    end
+
+    private
+
+    def dev_json(data)
+      { default: data.to_json, APNS_SANDBOX: data.to_json }
+    end
+
+    def prod_json(data)
+      { default: data.to_json, APNS: data.to_json, GCM: { data: data }.to_json }
     end
   end
 end
