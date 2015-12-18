@@ -30,13 +30,15 @@ module AwsSnsManager
     # +text+:: Text you want to send
     # +options+:: Options you want on payload
     # +env+:: Environments :prod, :dev
-    # +type+:: Notification type :normal, :silent
+    # +type+:: Notification type :normal, :silent, :nosound
     #
     def message(text, options = {}, env = :prod, type = :normal)
       if type == :normal
         data = normal_notification(text, options)
       elsif type == :silent
         data = silent_notification(text, options)
+      elsif type == :nosound
+        data = nosound_notification(text, options)
       end
       return dev_json(data) if env == :dev
       prod_json(data)
@@ -57,6 +59,17 @@ module AwsSnsManager
     def silent_notification(_text, options = {})
       base = {
         aps: {
+          'content-available': 1
+        }
+      }
+      base.merge(options)
+    end
+
+    def nosound_notification(text, options = {})
+      base = {
+        aps: {
+          alert: text,
+          badge: 1,
           'content-available': 1
         }
       }
