@@ -44,6 +44,7 @@ module AwsSnsManager
       prod_json(data)
     end
 
+    # rubocop:disable Metrics/MethodLength
     def normal_notification(text, options = {})
       base = {
         aps: {
@@ -60,6 +61,7 @@ module AwsSnsManager
       }
       base.merge(options)
     end
+    # rubocop:enable Metrics/MethodLength
 
     def silent_notification(_text, options = {})
       base = {
@@ -71,6 +73,7 @@ module AwsSnsManager
       base.merge(options)
     end
 
+    # rubocop:disable Metrics/MethodLength
     def nosound_notification(text, options = {})
       base = {
         aps: {
@@ -86,6 +89,7 @@ module AwsSnsManager
       }
       base.merge(options)
     end
+    # rubocop:enable Metrics/MethodLength
 
     private
 
