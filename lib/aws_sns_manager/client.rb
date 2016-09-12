@@ -47,7 +47,11 @@ module AwsSnsManager
     def normal_notification(text, options = {})
       base = {
         aps: {
-          alert: text,
+          alert: {
+            title: nil,
+            subtitle: nil,
+            body: text
+          },
           sound: 'default',
           badge: 1,
           'mutable-content': 1,
@@ -70,7 +74,11 @@ module AwsSnsManager
     def nosound_notification(text, options = {})
       base = {
         aps: {
-          alert: text,
+          alert: {
+            title: nil,
+            subtitle: nil,
+            body: text
+          },
           badge: 1,
           'mutable-content': 1,
           'content-available': 1
