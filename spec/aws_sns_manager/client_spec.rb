@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe AwsSnsManager::Client do
@@ -6,7 +7,8 @@ describe AwsSnsManager::Client do
       let(:client) do
         manager = AwsSnsManager::Client.new(stub_responses: true)
         manager.client.stub_responses(
-          :publish, message_id: '606781ee-ff46-5f93-bd04-cc4ac4dd68c3')
+          :publish, message_id: '606781ee-ff46-5f93-bd04-cc4ac4dd68c3'
+        )
         manager
       end
 
@@ -22,7 +24,8 @@ describe AwsSnsManager::Client do
       let(:client) do
         manager = AwsSnsManager::Client.new(stub_responses: true)
         manager.client.stub_responses(
-          :publish, 'InvalidParameter')
+          :publish, 'InvalidParameter'
+        )
         manager
       end
 
