@@ -50,6 +50,7 @@ module AwsSnsManager
           alert: text,
           sound: 'default',
           badge: 1,
+          'mutable-content': 1,
           'content-available': 1
         }
       }
@@ -59,6 +60,7 @@ module AwsSnsManager
     def silent_notification(_text, options = {})
       base = {
         aps: {
+          'mutable-content': 1,
           'content-available': 1
         }
       }
@@ -70,6 +72,7 @@ module AwsSnsManager
         aps: {
           alert: text,
           badge: 1,
+          'mutable-content': 1,
           'content-available': 1
         }
       }
