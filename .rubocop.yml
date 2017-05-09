@@ -8,3 +8,7 @@ Lint/HandleExceptions:
 Metrics/LineLength:
   Exclude:
     - aws_sns_manager.gemspec
+
+Metrics/BlockLength:
+  Exclude:
+    - '**/*_spec.rb'
