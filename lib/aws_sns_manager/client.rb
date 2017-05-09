@@ -54,7 +54,7 @@ module AwsSnsManager
             subtitle: nil,
             body: text
           },
-          sound: 'default',
+          sound: options.delete(:sound),
           badge: 1,
           'mutable-content': 1,
           'content-available': 1
