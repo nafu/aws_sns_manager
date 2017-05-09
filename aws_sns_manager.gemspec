@@ -1,5 +1,6 @@
 # coding: utf-8
 # frozen_string_literal: true
+
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'aws_sns_manager/version'
@@ -10,9 +11,9 @@ Gem::Specification.new do |s|
   s.email         = ['nakamurafumiya003@gmail.com']
   s.files         = `git ls-files -z`.split("\x0").reject { |f| f.start_with?('spec/') }
   s.homepage      = 'http://github.com/nafu/aws_sns_manager'
-  s.licenses      = %w(MIT)
+  s.licenses      = %w[MIT]
   s.name          = 'aws_sns_manager'
-  s.require_paths = %w(lib)
+  s.require_paths = %w[lib]
   s.required_rubygems_version = '>= 1.3.5'
   s.summary       = s.description
   s.version       = AwsSnsManager::VERSION

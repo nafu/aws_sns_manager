@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module AwsSnsManager
   # = AwsSnsManager::Client
   class Client
