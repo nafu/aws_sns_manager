@@ -9,14 +9,18 @@ rvm:
   - 2.5.8
   - 2.6.6
   - 2.7.1
-deploy:
-  provider: rubygems
-  api_key:
-    secure: DaIvbW+6p9LNv3YrnsIDtwo4f/7pIe1Y1E5tQuoOspN+lnUhaL5qFWYtbyuMUW9yG9TQhPCn9irCbUBkoKLCKCcbtYrQsELY2hx+z3fFJ7wZMriLojCttf4yZfGdK539clcPsIpkWVSsDaUnxGC1nbj5pJBLJk4U23SiZrMWL0I=
-  gem: aws_sns_manager
-  on:
-    tags: true
-    repo: nafu/aws_sns_manager
+jobs:
+  include:
+    - stage: deploy
+      rvm: 2.7.1
+      deploy:
+        provider: rubygems
+        api_key:
+          secure: DaIvbW+6p9LNv3YrnsIDtwo4f/7pIe1Y1E5tQuoOspN+lnUhaL5qFWYtbyuMUW9yG9TQhPCn9irCbUBkoKLCKCcbtYrQsELY2hx+z3fFJ7wZMriLojCttf4yZfGdK539clcPsIpkWVSsDaUnxGC1nbj5pJBLJk4U23SiZrMWL0I=
+        gem: aws_sns_manager
+        on:
+          tags: true
+          repo: nafu/aws_sns_manager
 addons:
   code_climate:
     repo_token: f963cfa99b5c830023926cbaa0cf70b2112d28cdc1b7db78bf39841936e4f766
