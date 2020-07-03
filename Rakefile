@@ -16,4 +16,4 @@ rescue LoadError
   end
 end
 
-task default: %i[spec rubocop]
+task default: %i[spec]
