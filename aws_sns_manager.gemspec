@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'aws-sdk', '~> 2'
   s.add_dependency 'json', '~> 2'
+  s.add_dependency 'webrick', '~> 1.7'
 
   s.add_development_dependency 'bundler', '>= 1.3.0'
   s.add_development_dependency 'rake', '~> 12.3'
