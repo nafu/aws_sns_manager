@@ -43,7 +43,7 @@ module AwsSnsManager
         data = nosound_notification(text, options)
       end
       return dev_json(data) if env == :dev
-      prod_json(data)
+      prod_json(data, gcm_notification(text, options))
     end
 
     # rubocop:disable Metrics/MethodLength
@@ -93,14 +93,24 @@ module AwsSnsManager
     end
     # rubocop:enable Metrics/MethodLength
 
+    def gcm_notification(text, options = {})
+      {
+        notification: {
+          title: nil,
+          body: text
+        },
+        data: options
+      }
+    end
+
     private
 
     def dev_json(data)
       { default: data.to_json, APNS_SANDBOX: data.to_json }
     end
 
-    def prod_json(data)
-      { default: data.to_json, APNS: data.to_json, GCM: { data: data }.to_json }
+    def prod_json(data, gcm_paylod)
+      { default: data.to_json, APNS: data.to_json, GCM: gcm_paylod.to_json }
     end
   end
 end
